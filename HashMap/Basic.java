@@ -1,13 +1,12 @@
 import java.util.*;
-
 public class Basic{
 
     public static void main(String args[]){
-      // Creating hash map to store Country and its population
+        // Creating hash map to store Country and its population
         // Craete or initialise hashmap
         HashMap<String , Integer> hm = new HashMap<>();
 
-        // Inerrtion O(N)
+        // Insertion O(N)
         
         hm.put("India" , 120);
         hm.put("USA" , 30);
@@ -39,6 +38,17 @@ public class Basic{
         hm.clear();
         System.out.println(hm);
 
+
+        // Iterating over the hashmap O(N)
+        Set<String> keys =  hm.keySet();
+        System.out.println(keys);
+
+        for( String k : keys){
+          System.out.println("key="+k +", value="+hm.get(k));
+        }
+       
+
+        // containsKey and containsValue methods
 
     }
 }
