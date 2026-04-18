@@ -1,3 +1,4 @@
+package Intro;
 //import java.util.*;
 
 public class DecToBin{
