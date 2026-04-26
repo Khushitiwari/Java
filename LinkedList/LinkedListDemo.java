@@ -104,7 +104,7 @@ public class LinkedListDemo{
       // it will automatically remove unreferenced nodes
 
        prev.next = prev.next.next;
-       return;
+       
       
     }
 
