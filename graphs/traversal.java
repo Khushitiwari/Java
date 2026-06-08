@@ -48,7 +48,7 @@ public class traversal {
     }
 
    // breadth first search
-    public static void bfs( ArrayList<Edge>[] graph ){ // O(V+ E)
+   /*  public static void bfs( ArrayList<Edge>[] graph ){ // O(V+ E)
         Queue< Integer > q = new LinkedList<>();
         boolean visited[] = new boolean[graph.length];
         q.add(0); // source
@@ -69,11 +69,11 @@ public class traversal {
         }
 
 
-    }
+    }  */
 
 
     // depth first search
-    public static void dfs( ArrayList<Edge>[] graph  , int curr , boolean visited[]){ // O(V + E)
+     /* public static void dfs( ArrayList<Edge>[] graph  , int curr , boolean visited[]){ // O(V + E)
 
         System.out.println(curr+" ");
         visited[curr] = true;
@@ -89,7 +89,7 @@ public class traversal {
 
 
     }
-
+ */
 
     // has path
 
@@ -111,6 +111,71 @@ public class traversal {
         }
 
         return false;
+    }
+
+
+    // BFS with BFS util for coonected componenets 
+
+    public static void bfs( ArrayList<Edge>[] graph ){
+
+        boolean visited[] = new boolean[graph.length];
+
+        for(  int i = 0 ; i< graph.length ; i++){
+            if( !visited[i] ){
+                bfsUtil( graph , visited);
+            }
+        }
+    }
+     public static void bfsUtil( ArrayList<Edge>[] graph  , boolean visited[] ){ // O(V+ E)
+        Queue< Integer > q = new LinkedList<>();
+        
+        q.add(0); // source
+
+        while( !q.isEmpty()){
+            int curr = q.remove();
+
+
+            if(!visited[curr]){
+                System.out.println(curr+ " ");
+                visited[curr] = true;
+                for( int i = 0 ; i < graph[curr].size() ; i++){
+                    Edge e = graph[curr].get(i);
+                    q.add(e.dest);
+
+                }
+            }
+        }
+
+
+    }
+
+
+
+    // DFS with DFS util for coonected components
+
+    public static void dfs(ArrayList<Edge>[] graph ){
+        boolean[] visited = new boolean[graph.length];
+
+        for( int i = 0 ; i < graph.length ; i++){
+            dfsUtil( graph , i , visited );
+        }
+    }
+
+    public static void dfsUtil( ArrayList<Edge>[] graph  , int curr , boolean visited[]){ // O(V + E)
+
+        System.out.println(curr+" ");
+        visited[curr] = true;
+
+
+        for( int i = 0 ; i < graph[curr].size(); i++){
+
+            Edge e  = graph[curr].get(i);
+            if(!visited[e.dest] ){
+                dfsUtil( graph , e.dest , visited);
+            }
+        }
+
+
     }
 
 
