@@ -1,4 +1,3 @@
-
 import java.util.*;
 public class basic {
     
@@ -41,8 +40,6 @@ public class basic {
              for(String city : cities){
                 System.out.println(city);
              }
-
-
 
 
     }

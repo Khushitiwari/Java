@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class PrimsAlgo {
     
     static class Edge{
@@ -53,11 +52,12 @@ public class PrimsAlgo {
     }
 
     public static void prims( ArrayList<Edge> graph[]){
+
         boolean vis[] = new boolean[graph.length];
 
         PriorityQueue<Pair> pq = new PriorityQueue<>();
         pq.add( new Pair(0 , 0));
-        int finalCost = 0; // mst cost/total min weight
+        int finalCost = 0; // mst cost or total min weight
 
         while( !pq.isEmpty()){
           Pair curr = pq.remove();
